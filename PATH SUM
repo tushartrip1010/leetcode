@@ -1,0 +1,17 @@
+    def hasPathSum(self, root, targetSum):
+        if root == None:
+            return False
+        
+        difference = targetSum - root.val
+        if difference == 0 and root.left == None and root.right == None:
+            return True
+        
+        if root.left != None:
+            if (self.hasPathSum(root.left, difference)):
+                return True
+        
+        if root.right != None:
+            if self.hasPathSum(root.right, difference):
+                return True
+        
+        return False
