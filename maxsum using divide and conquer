@@ -1,0 +1,13 @@
+maxsum(arr,l,u):
+  if(l>u) return 0
+  if (l==u) return max(0,arr[l])
+  m=(l+u)/2
+  lmax=sum=0
+  for i in range(m,-1):
+    sum=sum+arr[i]
+    lmax=max(lmax,sum)
+   rmax=sum=0
+  for i in range(m,-1):
+    sum=sum+arr[i]
+    lmax=max(rmax,sum)
+return max(lmax+max,maxsum(arr,l,m),maxsum(arr,m+1,u))   
