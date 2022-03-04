@@ -1,0 +1,15 @@
+    def matrixReshape(self, mat: List[List[int]], r: int, c: int) -> List[List[int]]:
+        mat_len = 0
+        dupl = []
+        
+        for x in mat:
+            mat_len += len(x)
+            for e in x:
+                dupl.append(e)
+        
+        if r*c != mat_len:
+            return mat
+        
+        ans = []
+        for i in range(0,len(dupl),c):
+            ans.append(dupl[i:i+c])
