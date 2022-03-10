@@ -1,0 +1,16 @@
+    def generate(self, numRows: int) -> List[List[int]]:
+        n = numRows
+        t = [[0 for _ in range(n)] for _ in range(n)]
+        
+        for i in range(n):
+            t[i][0] = 1
+        
+        for i in range(1, n):
+            for j in range(1, n):
+                t[i][j] = t[i-1][j-1] + t[i-1][j]
+        
+        ans = []
+        for i in range(len(t)):
+            ans.append(t[i][:i+1])
+        
+        return ans
