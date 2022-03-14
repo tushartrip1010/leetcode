@@ -1,0 +1,10 @@
+class Solution:
+    def reverseBits(self, n: int) -> int:
+	    number_of_bits = 32
+	    res = 0
+	    for i in range(number_of_bits):
+	        res <<= 1 # Shifts bit to the left to make space for the new bit
+	        res += (n & 1) # Adds the last bit of n to res
+	        n >>= 1 # Remove the last bit from n, so we can continue with the rest of the bits
+	    return res
+        
