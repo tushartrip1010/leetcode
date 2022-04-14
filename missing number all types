@@ -1,0 +1,27 @@
+class Solution:
+    def missingNumber(self, nums: List[int]) -> int:
+	
+	    # oN
+        # space complexity O(1)
+        theSum = sum(i for i in range(len(nums)+1))
+        return theSum - sum(nums)
+		
+		
+		
+		
+#         time complexity NlogN 
+#         space complexity N
+        arr = sorted(nums)
+        if arr[0] != 0:
+            return 0
+        if arr[-1] != len(nums):
+            return len(nums)
+        for i,num in enumerate(arr[1:]):
+            if num != arr[i]+1:
+                return arr[i]+1
+        
+        # time complexity N2
+        arr = [i for i in range(len(nums)+1)]
+        for num in arr:
+            if num not in nums:
+                return num
