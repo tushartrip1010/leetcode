@@ -1,0 +1,13 @@
+class Solution:
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+        nums1+=nums2
+        heapq.heapify(nums1)
+        heap=[]
+        while nums1:
+            x=heapq.heappop(nums1)
+            heap.append(x)
+        m=len(heap)
+        if m%2==0:
+            return (heap[m//2]+heap[m//2 -1])/2
+        else:
+            return heap[m//2]
