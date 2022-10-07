@@ -1,0 +1,23 @@
+def LeftView(root):
+    
+    # code here
+    q=deque()
+    q.append(root)
+    ans=[]
+    while q:
+        loop_length=len(q)
+        for i in range(loop_length):
+            temp=q.popleft()
+            if not temp:
+                continue
+            if i==0 :
+                ans.append(temp.data)
+        
+            
+            if temp.left:
+                q.append(temp.left)
+            
+            if temp.right:
+                q.append(temp.right)
+            
+    return ans  
